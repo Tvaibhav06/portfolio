@@ -1,0 +1,2188 @@
+# Vaibhav Tandon — Personal Developer Portfolio
+
+## Full Implementation Specification for Coding Agent
+
+## 0. Objective
+
+Build a complete personal developer portfolio for **Vaibhav Tandon** from scratch.
+
+The attached resume is the **single source of truth for all personal information, experience, projects, education, technologies, achievements, and claims**.
+
+The uploaded repository:
+
+**`responsive-portfolio-website-rian-main`**
+
+is the **primary visual/style reference**.
+
+The goal is NOT to copy the original portfolio's personal content.
+
+The goal is to recreate its **visual character and interaction philosophy** using Vaibhav's own identity and resume content.
+
+The final website should feel like:
+
+> **A polished technical developer portfolio with the visual personality of the Rian/Bedimcode portfolio, but with a modern AI/backend/systems engineering identity.**
+
+Do not create a generic developer template.
+
+Do not create a generic SaaS landing page.
+
+Do not create an AI-themed neon website.
+
+Do not use Jatin Kukreja's name, projects, experience, content, skills, or identity anywhere.
+
+---
+
+# 1. IMPORTANT SOURCE RULES
+
+Use these sources in this order:
+
+### Source 1 — Personal Information
+
+The attached file:
+
+**`Vaibhav_Tandon(10).pdf`**
+
+This is the authoritative source for:
+
+* Name
+* Education
+* Experience
+* Internship
+* Projects
+* Skills
+* Technical stack
+* Project descriptions
+* Metrics
+* Dates
+* Academic information
+
+### Source 2 — Visual Reference
+
+The uploaded:
+
+**`responsive-portfolio-website-rian-main.zip`**
+
+Use this as the visual reference for:
+
+* composition
+* typography feel
+* spacing
+* navigation
+* hero structure
+* geometric decoration
+* project presentation
+* section styling
+* dark/light theme
+* scroll animations
+* responsive behavior
+* visual rhythm
+
+Do NOT blindly duplicate the original website.
+
+Do NOT retain its personal information.
+
+Do NOT use its stock/profile photographs.
+
+Do NOT use its project names.
+
+Do NOT copy its text.
+
+---
+
+# 2. ABSOLUTE CONTENT RESTRICTION
+
+The following identity is completely forbidden:
+
+```text
+Jatin Kukreja
+```
+
+Do not include it anywhere.
+
+This includes:
+
+* visible content
+* metadata
+* comments
+* source data
+* SEO
+* JSON-LD
+* alt text
+* hidden elements
+* placeholder content
+* project descriptions
+* navigation
+* page title
+
+Also do not use any Jatin-specific:
+
+* projects
+* experience
+* leadership
+* skills
+* email
+* domain
+* social links
+* project claims
+
+The portfolio must be exclusively about:
+
+```text
+Vaibhav Tandon
+```
+
+---
+
+# 3. PERSONAL BRAND
+
+## Name
+
+```text
+Vaibhav Tandon
+```
+
+## Positioning
+
+Position Vaibhav as a developer focused on:
+
+```text
+AI / ML
+Backend Engineering
+Full-Stack Development
+Developer Infrastructure
+Systems
+Observability
+```
+
+Avoid exaggerated positioning such as:
+
+```text
+World-class
+Visionary
+Revolutionary
+Industry-leading
+10x engineer
+AI expert
+Future of AI
+```
+
+Use grounded engineering language.
+
+The identity should feel like:
+
+> **A pre-final-year engineering student building practical AI-powered and backend-heavy software systems.**
+
+Do not call Vaibhav a senior engineer.
+
+Do not invent employment titles.
+
+Do not invent awards.
+
+Do not invent companies.
+
+Do not invent user counts.
+
+Do not invent project metrics.
+
+---
+
+# 4. DESIGN DIRECTION
+
+Use the uploaded Rian portfolio as the primary visual inspiration.
+
+The visual language should preserve its:
+
+### Overall appearance
+
+* light neutral background
+* strong black typography
+* warm orange accent
+* large typography
+* asymmetric layouts
+* generous whitespace
+* thin borders
+* geometric decoration
+* editorial composition
+* subtle shadows
+* framed visual elements
+* restrained animation
+* handcrafted visual details
+
+The site should feel:
+
+```text
+Editorial
+Technical
+Minimal
+Personal
+Modern
+Slightly Experimental
+```
+
+---
+
+# 5. COLOR SYSTEM
+
+Use a palette inspired by the reference.
+
+### Light theme
+
+```text
+Background: #E7E7E7 / similar soft neutral
+Primary text: #050505
+Secondary text: #444444
+Accent: warm orange
+Surface: #DEDEDE
+White: #F7F7F7
+```
+
+### Dark theme
+
+```text
+Background: #111111
+Primary text: #F5F5F5
+Secondary text: #A0A0A0
+Accent: warm orange
+Surface: #1A1A1A
+```
+
+The orange accent should be used selectively for:
+
+* highlighted words
+* geometric shapes
+* buttons
+* active indicators
+* small visual details
+* project status elements
+* decorative marks
+
+Do NOT introduce:
+
+* purple AI gradients
+* rainbow gradients
+* neon green
+* neon pink
+* blue-purple AI backgrounds
+* excessive glassmorphism
+
+---
+
+# 6. TYPOGRAPHY
+
+The reference uses a large, heavy editorial typography style.
+
+Preserve that feeling.
+
+Prefer a modern sans-serif such as:
+
+```text
+Bai Jamjuree
+Inter
+Manrope
+DM Sans
+```
+
+Use one primary family.
+
+Typography hierarchy:
+
+### Hero
+
+Very large and bold.
+
+### Section titles
+
+Large and heavy.
+
+### Body
+
+Readable and medium-weight.
+
+### Technical information
+
+Use slightly smaller typography and optionally a monospaced font.
+
+Do not make the entire website monospace.
+
+---
+
+# 7. VISUAL PERSONALITY
+
+Recreate the visual motifs of the reference portfolio.
+
+Use details such as:
+
+### Geometric accent
+
+Small rotated orange square / diamond.
+
+### Outline box
+
+Thin black outlined geometric shape offset behind cards/images.
+
+### Hand-drawn elements
+
+Subtle:
+
+* curved arrow
+* scribble
+* underline
+* technical sketch
+
+These should look intentional rather than random.
+
+### Highlight treatment
+
+Important words can have:
+
+```text
+orange rectangular background
+```
+
+similar to the reference.
+
+Use this sparingly.
+
+---
+
+# 8. HERO SECTION
+
+The hero is the most important visual section.
+
+Use an asymmetric two-column composition similar to the reference.
+
+Desktop:
+
+```text
+Left                      Right
+
+Text                      Profile / Visual
+Intro                     framed image
+Headline                  geometric details
+Description               decorative elements
+Social links
+Scroll indicator
+```
+
+Mobile:
+
+```text
+Text
+↓
+Visual
+↓
+Social links
+↓
+Scroll indicator
+```
+
+---
+
+# 9. HERO CONTENT
+
+Use factual content based on the resume.
+
+Suggested structure:
+
+```text
+hey, I'm
+
+Vaibhav Tandon
+
+Software developer building AI-powered systems,
+backend infrastructure, and full-stack applications.
+```
+
+Do not make unsupported claims.
+
+A slightly more technical variation is acceptable:
+
+```text
+hey, I'm
+
+Vaibhav Tandon
+
+I build AI-powered systems, backend infrastructure,
+and full-stack applications with a focus on practical engineering.
+```
+
+Do not add claims that are not supported by the resume.
+
+---
+
+# 10. HERO CTAs
+
+Primary:
+
+```text
+View Projects
+```
+
+Secondary:
+
+```text
+About Me
+```
+
+Optional:
+
+```text
+Resume
+```
+
+The Resume button should point to the actual resume asset if one is available.
+
+Do not create fake external links.
+
+---
+
+# 11. SOCIAL LINKS
+
+Use the social links present in the resume.
+
+Available categories include:
+
+```text
+GitHub
+LinkedIn
+LeetCode
+Email
+```
+
+Use actual URLs when they are explicitly available.
+
+If a URL is not available:
+
+```text
+Do not create a fake URL.
+Do not render a broken link.
+```
+
+Use placeholders internally only.
+
+---
+
+# 12. PROFILE IMAGE / HERO VISUAL
+
+The original reference uses a framed personal portrait.
+
+Create a similar composition for Vaibhav.
+
+Preferred structure:
+
+```text
+image
++
+offset black frame
++
+small orange geometric square
++
+subtle hand-drawn decoration
+```
+
+If an actual profile photo is available in project assets, use it.
+
+If no suitable photo exists:
+
+Do not fabricate a realistic person.
+
+Instead create an abstract technical profile visual using:
+
+* geometric shapes
+* terminal-inspired layout
+* system architecture lines
+* subtle typography
+* technical diagrams
+
+Do not use generic stock developer images.
+
+---
+
+# 13. NAVIGATION
+
+Build a navigation inspired by the reference.
+
+Desktop:
+
+```text
+VT.                         About
+                            Experience
+                            Projects
+                            Stack
+                            Contact
+```
+
+Use a clean top navigation.
+
+The active section should have a clear visual indicator.
+
+Possible indicator:
+
+```text
+small underline
+```
+
+similar to the reference.
+
+The Contact button can use a solid black rectangular style.
+
+Example:
+
+```text
+Contact Me
+```
+
+with white text.
+
+Mobile:
+
+Use a compact menu button and animated navigation drawer.
+
+---
+
+# 14. NAVIGATION SECTIONS
+
+Use:
+
+```text
+Home
+About
+Experience
+Projects
+Stack
+Contact
+```
+
+Do not create unnecessary sections.
+
+---
+
+# 15. ABOUT SECTION
+
+The visual structure should take inspiration from the reference's About section.
+
+Content must be derived from the resume.
+
+Introduce Vaibhav as:
+
+* B.Tech student
+* Communication and Computer Engineering
+* interested in AI/ML
+* backend systems
+* full-stack engineering
+* practical software development
+
+Education:
+
+```text
+The LNM Institute of Information Technology
+B.Tech in Communication and Computer Engineering
+2024 – 2028
+CGPA: 7.34
+```
+
+School information may be included in a compact academic block:
+
+```text
+Salwan Public School
+CBSE Class XII: 90%
+CBSE Class X: 96%
+```
+
+Do not overemphasize school education compared with university and engineering experience.
+
+---
+
+# 16. ABOUT VISUAL STYLE
+
+Use an editorial split layout.
+
+For example:
+
+```text
+ABOUT ME.
+
+I build...
+
+                    Education
+                    LNMIIT
+                    2024–2028
+
+                    7.34 CGPA
+```
+
+Use small geometric decorations around the section.
+
+Avoid making the About section look like a resume copy-paste.
+
+It should feel like a personal introduction.
+
+---
+
+# 17. FOCUS AREAS / SERVICES REPLACEMENT
+
+The original portfolio contains a Services section.
+
+Do not copy "Web Design / Development / Mobile App".
+
+Instead transform this section into:
+
+```text
+What I Build
+```
+
+Use exactly three or four factual focus areas.
+
+### AI / ML Systems
+
+Work involving:
+
+* AI-powered pipelines
+* NLP
+* LangChain
+* Cohere
+* spaCy
+* PaddleOCR
+* Scikit-learn
+
+### Backend Engineering
+
+Work involving:
+
+* FastAPI
+* REST APIs
+* Redis
+* Qdrant
+* PostgreSQL
+* SQLite
+* Pydantic
+* SQLAlchemy
+
+### Full-Stack Applications
+
+Work involving:
+
+* React
+* React Native
+* TypeScript
+* Tailwind CSS
+* Vite
+
+### Infrastructure & Observability
+
+Work involving:
+
+* Docker
+* Docker Compose
+* OpenTelemetry
+* Prometheus
+* Grafana
+* Gunicorn
+
+These should be presented visually as editorial cards or staggered blocks.
+
+Do not turn them into generic service offerings.
+
+---
+
+# 18. EXPERIENCE SECTION
+
+Create:
+
+```text
+Experience
+```
+
+Use a vertical timeline or editorial list.
+
+## Experience 1
+
+```text
+Presto InfoSolutions Pvt Ltd
+
+Software Engineering Intern
+Jun 2026 – Jul 2026
+Delhi, India
+```
+
+Resume-supported description:
+
+```text
+Architected a 7-stage hybrid multilingual text processing pipeline
+for image-based text removal, OCR, translation, and re-rendering,
+with SSIM-driven quality assessment and intelligent fallback
+between on-device and backend execution paths.
+```
+
+Additional technical context:
+
+```text
+React Native
+ML Kit
+OpenCV
+LaMa
+PaddleOCR
+Argos Translate
+IndicTrans2
+Skia
+```
+
+Supported multilingual workflows across 80+ language scripts, as stated in the resume.
+
+Do not invent additional internship achievements.
+
+---
+
+# 19. EXPERIENCE 2
+
+```text
+Google Developer Groups (GDG) On Campus – LNMIIT
+
+Technical Member — AI/ML Domain
+Aug 2025 – May 2026
+Jaipur, India
+```
+
+Description:
+
+```text
+Collaborated on AI/ML and full-stack development initiatives
+across technical workshops addressing real campus problems.
+```
+
+Also include:
+
+```text
+Desportivos
+```
+
+as a highlighted contribution:
+
+```text
+Architected and launched the official website for the college sports fest,
+built with React.js and Tailwind CSS, serving 2,000+ attendees on the
+official college domain as part of an 8-member team.
+```
+
+These metrics are explicitly present in the resume.
+
+---
+
+# 20. PROJECTS SECTION
+
+Projects are the main technical showcase.
+
+Use the visual spirit of the reference project's section, but make the presentation significantly more engineering-oriented.
+
+There should be exactly:
+
+```text
+FlowGate
+LowKey Secure
+LENS
+```
+
+Do NOT add fake fourth projects.
+
+Do NOT add "More Projects".
+
+---
+
+# 21. PROJECT 1 — FLOWGATE
+
+## Name
+
+```text
+FlowGate
+```
+
+## Subtitle
+
+```text
+Unified LLM Gateway & Control Plane
+```
+
+## Stack
+
+```text
+Python 3.11
+Redis
+Qdrant
+Docker
+OpenTelemetry
+Prometheus
+Grafana
+Gunicorn
+```
+
+## Description
+
+```text
+Architected an OpenAI-compatible LLM gateway that unified
+semantic caching, Redis-backed rate limiting, budget enforcement,
+and multi-provider routing behind a single API for OpenAI and Anthropic.
+```
+
+## Technical highlights
+
+Display visually:
+
+```text
+Semantic Cache
+Rate Limiting
+Budget Enforcement
+Provider Routing
+Fallback
+Observability
+```
+
+Resume-supported technical claims:
+
+```text
+49.5% semantic-cache hit rate in load testing
+
+5,000+ concurrent requests
+
+sub-millisecond middleware overhead
+```
+
+These metrics must be displayed exactly and not inflated.
+
+## Visual motif
+
+Use:
+
+```text
+request
+   ↓
+gateway
+   ↓
+cache / policy / routing
+   ↓
+LLM provider
+   ↓
+telemetry
+```
+
+Create a lightweight architecture visualization instead of a generic project screenshot.
+
+---
+
+# 22. PROJECT 2 — LOWKEY SECURE
+
+## Name
+
+```text
+LowKey Secure
+```
+
+## Subtitle
+
+```text
+Privacy-First Event Access System
+```
+
+## Stack
+
+```text
+React 19
+FastAPI
+SQLite
+JWT
+RSA-256
+Tailwind CSS
+```
+
+## Core capabilities
+
+```text
+Role-Based Access Control
+Privacy Risk Classification
+Approval Workflows
+Anonymized Attendance
+AI Privacy Advisor
+```
+
+## Resume-supported technical details
+
+```text
+3 user roles:
+Admin
+Club Lead
+Student
+```
+
+```text
+Risk levels:
+HIGH
+MEDIUM
+LOW
+```
+
+Security:
+
+```text
+JWT
+bcrypt
+RSA-256
+SHA-256
+```
+
+AI:
+
+```text
+Llama-3 via Groq
+```
+
+The AI Privacy Advisor processes numerical risk statistics and does not receive PII. Preserve this distinction exactly.
+
+## Visual motif
+
+Use:
+
+```text
+identity
+permissions
+shield
+approval flow
+privacy
+```
+
+A lock/shield-inspired geometric design is appropriate.
+
+Do not use hacker/cyberpunk visuals.
+
+---
+
+# 23. PROJECT 3 — LENS
+
+## Name
+
+```text
+LENS
+```
+
+## Subtitle
+
+```text
+AI-Powered ESG Claim Verification Platform
+```
+
+## Stack
+
+```text
+FastAPI
+LangChain
+CohereLLM
+spaCy
+Tailwind CSS
+Leaflet
+React
+```
+
+## Description
+
+```text
+Developed an AI-driven pipeline using PyMuPDF and LangChain
+with Cohere to parse sustainability reports and extract
+structured ESG claims automatically.
+```
+
+## Capabilities
+
+```text
+ESG Claim Extraction
+Entity Recognition
+Evidence Verification
+Facility Tracking
+Risk Scoring
+Transparent Explanations
+```
+
+## External evidence sources
+
+```text
+OpenWeatherMap
+Google News RSS
+```
+
+## Visual motif
+
+Use:
+
+```text
+documents
+ESG claims
+evidence
+maps
+verification
+```
+
+A clean document-to-verification flow would work well.
+
+Resume claims must remain faithful to the original wording.
+
+---
+
+# 24. PROJECT PRESENTATION
+
+The projects should NOT be presented as boring rectangular Bootstrap cards.
+
+Use an editorial layout inspired by the reference.
+
+For example:
+
+```text
+01
+
+FLOWGATE
+Unified LLM Gateway & Control Plane
+
+[architecture visualization]
+
+Python • Redis • Qdrant • Docker
+
+49.5% cache hit rate
+5,000+ concurrent requests
+
+GitHub →
+```
+
+Then:
+
+```text
+02
+
+LOWKEY SECURE
+Privacy-First Event Access System
+
+[privacy / authorization visualization]
+
+React 19 • FastAPI • SQLite
+
+...
+```
+
+Use alternating alignment:
+
+```text
+left
+right
+left
+```
+
+or equivalent asymmetric composition.
+
+---
+
+# 25. PROJECT INTERACTIONS
+
+On hover:
+
+* subtle image/visual movement
+* underline animation
+* slight card translation
+* accent geometric animation
+
+Do not make projects aggressively bounce or rotate.
+
+Use transitions around:
+
+```text
+200–500ms
+```
+
+with polished easing.
+
+---
+
+# 26. TECH STACK SECTION
+
+Create:
+
+```text
+Stack
+```
+
+Do not show one enormous wall of technology logos.
+
+Use categories based directly on the resume.
+
+## Languages
+
+```text
+Python
+Java
+JavaScript (ES6+)
+TypeScript
+SQL
+Solidity
+HTML/CSS
+Golang
+```
+
+## Backend & APIs
+
+```text
+FastAPI
+Spring Boot
+REST APIs
+Pydantic
+SQLAlchemy
+httpx
+Uvicorn
+Gunicorn
+```
+
+## Data & Storage
+
+```text
+Redis
+Qdrant
+PostgreSQL
+SQLite
+Firebase Realtime Database
+```
+
+## Cloud / DevOps / Observability
+
+```text
+Docker
+Docker Compose
+OpenTelemetry
+Prometheus
+Grafana
+Google Cloud Platform
+Vertex AI
+Git
+GitHub
+```
+
+## Frontend / App Development
+
+```text
+React.js
+React Native
+Streamlit
+Tailwind CSS
+Vite
+```
+
+## AI / ML
+
+```text
+LangChain
+spaCy
+PaddleOCR
+Scikit-learn
+Pandas
+NumPy
+NLP Pipelines
+```
+
+## Security & Authentication
+
+```text
+JWT
+RBAC
+Bcrypt
+SHA-256
+RSA-256
+```
+
+All of these are supported by the resume.
+
+Do not add technologies that are not in the resume.
+
+---
+
+# 27. CONTACT SECTION
+
+Use the reference portfolio's contact-section philosophy.
+
+Heading:
+
+```text
+Contact Me.
+```
+
+Supporting text:
+
+```text
+Have a project, opportunity, or technical problem to discuss?
+Send me a message.
+```
+
+Keep wording professional and natural.
+
+Contact fields:
+
+```text
+Name
+Email
+Subject
+Message
+```
+
+Primary button:
+
+```text
+Send Message
+```
+
+Also provide direct contact through the email address available in the resume:
+
+```text
+vaibhavtdn06@gmail.com
+```
+
+The email must not be exposed through a fake address.
+
+---
+
+# 28. CONTACT BEHAVIOR
+
+Implement proper form states:
+
+```text
+Idle
+Submitting
+Success
+Error
+```
+
+Validation:
+
+```text
+Name required
+Valid email
+Subject required
+Message required
+```
+
+Use accessible labels.
+
+Use:
+
+```text
+aria-invalid
+aria-describedby
+```
+
+Prevent repeated submissions.
+
+If an actual email service is configured, send the email.
+
+If no email service is configured:
+
+Do NOT fake successful delivery.
+
+Show:
+
+```text
+Your message has been validated.
+Email delivery is not configured in this environment.
+Please contact me directly by email.
+```
+
+---
+
+# 29. FOOTER
+
+Keep the footer visually similar to the reference.
+
+Include:
+
+```text
+Home
+About
+Projects
+Contact
+```
+
+Social icons:
+
+```text
+GitHub
+LinkedIn
+LeetCode
+Email
+```
+
+Footer copyright:
+
+```text
+© [current year] Vaibhav Tandon
+```
+
+Use the dynamic year.
+
+Do not hardcode 2026.
+
+---
+
+# 30. DARK / LIGHT THEME
+
+The reference supports both themes.
+
+Implement:
+
+```text
+Light
+Dark
+```
+
+Use an animated theme button.
+
+The visual structure should remain identical in both themes.
+
+Light mode should feel like the reference:
+
+```text
+soft gray background
+black typography
+orange accent
+```
+
+Dark mode:
+
+```text
+deep charcoal background
+white typography
+orange accent
+```
+
+Do not turn dark mode into a neon cyberpunk interface.
+
+---
+
+# 31. ANIMATION SYSTEM
+
+The reference relies heavily on scroll-based reveal animation.
+
+Recreate this behavior using a modern animation library such as:
+
+```text
+Motion
+```
+
+or:
+
+```text
+Framer Motion
+```
+
+Use animation for:
+
+* hero entrance
+* navigation
+* section reveal
+* project entrance
+* buttons
+* theme toggle
+* image movement
+* decorative elements
+* contact interaction
+
+Animation should feel:
+
+```text
+smooth
+organic
+fast
+intentional
+```
+
+Avoid:
+
+* giant parallax effects
+* constant bouncing
+* excessive 3D
+* slow page transitions
+* every-element animation
+
+---
+
+# 32. SCROLL REVEALS
+
+Every major section should reveal naturally as it enters the viewport.
+
+Suggested behavior:
+
+```text
+opacity: 0 → 1
+translateY: 30px → 0
+```
+
+with a polished ease-out curve.
+
+Use staggered reveals for groups of:
+
+* project metadata
+* skills
+* experience items
+* social links
+
+Ensure animations do not hide content indefinitely.
+
+---
+
+# 33. DECORATIVE ANIMATION
+
+Use subtle movement for:
+
+### Geometric box
+
+Small rotation / position animation.
+
+### Arrow
+
+Slow draw/reveal.
+
+### Orange diamond
+
+Small controlled movement.
+
+### Project visuals
+
+Gentle scale / translation on hover.
+
+These should enhance the design without becoming the main attraction.
+
+---
+
+# 34. RESPONSIVE DESIGN
+
+The reference uses a mobile-first philosophy.
+
+Test:
+
+```text
+375px
+390px
+430px
+640px
+768px
+1024px
+1280px
+1440px
+1920px
+```
+
+Requirements:
+
+* no horizontal overflow
+* readable typography
+* functional navigation
+* usable buttons
+* project layouts remain coherent
+* hero image scales correctly
+* contact form remains usable
+* decorative elements do not overlap content
+* theme switch remains accessible
+
+---
+
+# 35. MOBILE HERO
+
+On mobile, do not simply shrink the desktop hero.
+
+Use a deliberate layout:
+
+```text
+hey, I'm
+
+Vaibhav Tandon
+
+description
+
+CTA buttons
+
+profile / technical visual
+
+social links
+
+scroll indicator
+```
+
+Maintain the reference's editorial composition.
+
+---
+
+# 36. ACCESSIBILITY
+
+Implement:
+
+### Navigation
+
+* semantic `<nav>`
+* keyboard support
+* focus-visible states
+* mobile menu keyboard support
+
+### Links
+
+All interactive links must have understandable labels.
+
+### Images
+
+Use descriptive alt text.
+
+### Headings
+
+Use:
+
+```text
+h1
+h2
+h3
+```
+
+in proper hierarchy.
+
+### Forms
+
+Associate labels and inputs correctly.
+
+### Reduced Motion
+
+Respect:
+
+```text
+prefers-reduced-motion
+```
+
+Reduce animation rather than breaking functionality.
+
+---
+
+# 37. SEO
+
+Create proper metadata.
+
+Title:
+
+```text
+Vaibhav Tandon — Software Developer
+```
+
+Description should naturally communicate:
+
+```text
+AI/ML
+backend engineering
+full-stack development
+systems
+```
+
+Add:
+
+* OpenGraph
+* Twitter/X metadata
+* canonical URL
+* robots
+* sitemap
+
+Do not fabricate awards or professional affiliations.
+
+---
+
+# 38. JSON-LD
+
+Add Person structured data containing only supported information.
+
+Example:
+
+```text
+name: Vaibhav Tandon
+jobTitle: Software Developer
+```
+
+Description:
+
+```text
+Developer building AI-powered systems, backend infrastructure,
+and full-stack applications.
+```
+
+Do not fabricate:
+
+* employers
+* awards
+* social accounts
+* job titles
+* certifications
+* companies
+
+---
+
+# 39. TECHNICAL IMPLEMENTATION
+
+Use a modern React-based implementation.
+
+Preferred stack:
+
+```text
+Next.js
+React
+TypeScript
+Tailwind CSS
+Motion
+```
+
+You may use the project's original styling approach where appropriate, but the final implementation should be maintainable and componentized.
+
+Do not introduce unnecessary technologies.
+
+---
+
+# 40. PROJECT STRUCTURE
+
+Use a clean structure similar to:
+
+```text
+src/
+├── app/
+│   ├── layout.tsx
+│   ├── page.tsx
+│   ├── globals.css
+│   ├── robots.ts
+│   └── sitemap.ts
+│
+├── components/
+│   ├── navbar.tsx
+│   ├── hero.tsx
+│   ├── about.tsx
+│   ├── focus-areas.tsx
+│   ├── experience.tsx
+│   ├── projects.tsx
+│   ├── project-card.tsx
+│   ├── tech-stack.tsx
+│   ├── contact.tsx
+│   ├── footer.tsx
+│   └── ui/
+│
+├── lib/
+│   ├── data.ts
+│   ├── utils.ts
+│   └── validators.ts
+│
+└── assets/
+```
+
+---
+
+# 41. CENTRALIZED DATA
+
+Put portfolio content in:
+
+```text
+src/lib/data.ts
+```
+
+Do not duplicate resume strings throughout components.
+
+Suggested types:
+
+```ts
+Project
+Experience
+Education
+TechnologyCategory
+SocialLink
+NavigationItem
+FocusArea
+```
+
+Components should consume these structures.
+
+---
+
+# 42. IMAGE / ASSET STRATEGY
+
+Do NOT use generic stock images of:
+
+* programmers
+* laptops
+* AI robots
+* servers
+* code screens
+
+Instead use:
+
+### Hero
+
+Actual profile photo if provided.
+
+### FlowGate
+
+Abstract gateway/system architecture visual.
+
+### LowKey Secure
+
+Privacy / authorization visual.
+
+### LENS
+
+Document + map + verification visual.
+
+These can be built with:
+
+* CSS
+* SVG
+* lightweight React components
+* geometric illustrations
+
+The project visuals should feel like part of the portfolio's identity.
+
+---
+
+# 43. REFERENCE STYLE RULE
+
+The following visual properties should clearly remind the viewer of the uploaded Rian reference:
+
+```text
+Large editorial headings
+Neutral gray canvas
+Black + orange palette
+Asymmetric layouts
+Framed image treatment
+Geometric accents
+Hand-drawn decorative elements
+Minimal navigation
+Strong section titles
+Generous whitespace
+Scroll reveal animations
+Dark/light mode
+```
+
+However:
+
+```text
+Do not clone exact layouts pixel-for-pixel.
+```
+
+Create an original Vaibhav interpretation.
+
+---
+
+# 44. THINGS TO AVOID
+
+Do NOT create:
+
+```text
+Generic AI portfolio
+Generic GitHub portfolio
+Cyberpunk portfolio
+Purple AI gradient portfolio
+Glassmorphism everywhere
+Huge glowing text
+Particle background
+Constant 3D animation
+Gaming-style interface
+SaaS dashboard
+Corporate landing page
+```
+
+Do NOT turn the site into a resume PDF pasted onto a webpage.
+
+---
+
+# 45. CONTENT ACCURACY RULE
+
+Never invent:
+
+```text
+metrics
+users
+clients
+revenue
+awards
+rankings
+employment
+companies
+certifications
+hackathon wins
+performance numbers
+```
+
+unless supported by the attached resume.
+
+Use exact numbers when they exist.
+
+Examples supported by the resume:
+
+```text
+80+ language scripts
+2,000+ attendees
+8-member team
+49.5% cache hit rate
+5,000+ concurrent requests
+7.34 CGPA
+90% Class XII
+96% Class X
+```
+
+## Do not change these values.
+
+# 46. IMPLEMENTATION PHASES
+
+## Phase 0 — Inspect
+
+Before writing code:
+
+1. Inspect the uploaded Rian portfolio repository.
+2. Inspect the attached resume.
+3. Extract the visual design language.
+4. Extract all factual portfolio data.
+5. Create a content/design mapping.
+
+Do not start coding until these sources have been inspected.
+
+---
+
+## Phase 1 — Foundation
+
+Implement:
+
+```text
+Next.js
+React
+TypeScript
+Tailwind
+global styles
+fonts
+theme system
+data architecture
+```
+
+Verify:
+
+```bash
+npm run build
+```
+
+---
+
+## Phase 2 — Navigation + Layout
+
+Implement:
+
+```text
+Navbar
+Theme Toggle
+Page Layout
+Footer
+```
+
+Verify responsive navigation.
+
+---
+
+## Phase 3 — Hero
+
+Implement:
+
+```text
+Hero typography
+Profile/technical visual
+Decorative geometric elements
+Social links
+CTA buttons
+Scroll indicator
+```
+
+The hero should strongly reflect the uploaded reference.
+
+---
+
+## Phase 4 — About + Focus Areas
+
+Implement:
+
+```text
+About
+Education
+What I Build
+```
+
+Use scroll reveals.
+
+---
+
+## Phase 5 — Experience
+
+Implement:
+
+```text
+Presto InfoSolutions
+GDG On Campus LNMIIT
+Desportivos
+```
+
+Use an editorial timeline/list.
+
+---
+
+## Phase 6 — Projects
+
+Implement:
+
+```text
+FlowGate
+LowKey Secure
+LENS
+```
+
+This should be the strongest technical section.
+
+Create project-specific visuals.
+
+---
+
+## Phase 7 — Tech Stack
+
+Implement categorized skill presentation.
+
+Do not create a flat technology wall.
+
+---
+
+## Phase 8 — Contact
+
+Implement:
+
+```text
+Name
+Email
+Subject
+Message
+validation
+submission states
+direct email
+```
+
+---
+
+## Phase 9 — Animation Polish
+
+Review:
+
+```text
+Hero
+Navbar
+Sections
+Projects
+Buttons
+Decorative elements
+Theme toggle
+Contact
+```
+
+Make motion consistent.
+
+---
+
+## Phase 10 — Responsive + Accessibility
+
+Test all specified breakpoints.
+
+Test:
+
+```text
+Tab
+Shift + Tab
+Enter
+Space
+Escape
+```
+
+Verify there is no keyboard trap.
+
+---
+
+## Phase 11 — Final Visual Pass
+
+Compare the finished site against the uploaded Rian reference.
+
+Check:
+
+### Hero
+
+* typography
+* composition
+* framing
+* decoration
+* whitespace
+
+### Navbar
+
+* spacing
+* active state
+* contact button
+* mobile behavior
+
+### Sections
+
+* heading style
+* spacing
+* orange accent
+* geometric details
+
+### Projects
+
+* hierarchy
+* visuals
+* technical information
+* links
+* responsiveness
+
+### Contact
+
+* form hierarchy
+* input states
+* accessibility
+
+---
+
+# 47. FINAL QA
+
+Run:
+
+```bash
+npm run lint
+npm run build
+```
+
+Expected:
+
+```text
+0 lint errors
+0 build errors
+```
+
+Then manually inspect the application in a browser.
+
+Check:
+
+```text
+No horizontal overflow
+No broken images
+No broken links
+No console errors
+No hydration errors
+No inaccessible controls
+No fake content
+No Jatin Kukreja content
+```
+
+---
+
+# 48. FINAL CONTENT AUDIT
+
+The final portfolio must contain:
+
+### Name
+
+```text
+Vaibhav Tandon
+```
+
+### Experience
+
+```text
+Presto InfoSolutions Pvt Ltd
+Software Engineering Intern
+Jun 2026 – Jul 2026
+
+GDG On Campus – LNMIIT
+Technical Member (AI ML Domain)
+Aug 2025 – May 2026
+```
+
+### Projects
+
+```text
+FlowGate
+LowKey Secure
+LENS
+```
+
+### Education
+
+```text
+The LNM Institute of Information Technology
+B.Tech in Communication and Computer Engineering
+2024 – 2028
+CGPA: 7.34
+```
+
+### Skills
+
+Use only resume-supported technologies.
+
+---
+
+# 49. FINAL DESIGN OBJECTIVE
+
+The finished website should visually communicate:
+
+> **Vaibhav Tandon — a developer building AI-powered systems, backend infrastructure, and full-stack applications.**
+
+It should have the visual DNA of the uploaded Rian portfolio:
+
+```text
+Editorial
+Minimal
+Bold
+Geometric
+Personal
+Animated
+Responsive
+```
+
+while having a completely original technical identity based on Vaibhav's actual resume.
+
+The end result should feel like:
+
+> **Rian-style visual design + Vaibhav's engineering identity.**
+
+Not:
+
+> Rian portfolio with different text.
+
+And absolutely not:
+
+> Jatin Kukreja portfolio.
+
+---
+
+# 50. FINAL AGENT INSTRUCTION
+
+Do not ask me to manually specify every design detail.
+
+Use the attached reference repository to infer spacing, composition, visual rhythm, decorative treatment, and interaction style.
+
+Use the attached resume to infer the correct personal content.
+
+When the specification leaves room for implementation choice, prioritize:
+
+```text
+Visual similarity to the reference
++
+Content accuracy
++
+Modern UX
++
+Responsive behavior
++
+Accessibility
++
+Maintainable React architecture
+```
+
+Do not simplify the visual design merely because a simpler implementation is easier.
+
+Do not invent information to make the portfolio appear more impressive.
+
+Build the complete portfolio end-to-end.

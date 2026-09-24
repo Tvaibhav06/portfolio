@@ -1,0 +1,28 @@
+kind = "web"
+previewPath = "/"
+title = "Vaibhav Tandon Portfolio"
+description = "A personal developer portfolio showcasing Vaibhav Tandon's experience, AI and backend-focused projects, education, and technical skills."
+version = "1.0.0"
+id = "artifacts/vaibhav-portfolio"
+router = "path"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 21759
+
+[services.development]
+run = "pnpm --filter @workspace/vaibhav-portfolio run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/vaibhav-portfolio", "run", "build" ]
+serve = "static"
+publicDir = "artifacts/vaibhav-portfolio/dist/public"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "21759"
+BASE_PATH = "/"
