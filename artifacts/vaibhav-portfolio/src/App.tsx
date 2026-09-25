@@ -204,16 +204,9 @@ function Home() {
         </Reveal>
         <Reveal className="hero-visual" delay="reveal-delay-2">
           <div className="visual-frame">
-            <span className="visual-label mono">VT / SYSTEMS.LOG</span>
-            <svg viewBox="0 0 500 530" role="img" aria-label="Abstract technical profile visual showing a system architecture grid">
-              <g opacity=".25" stroke="currentColor" strokeWidth="1">{Array.from({ length: 10 }, (_, i) => <path key={`h-${i}`} d={`M35 ${80 + i * 36} H465`} />)}{Array.from({ length: 12 }, (_, i) => <path key={`v-${i}`} d={`M${35 + i * 39} 80 V410`} />)}</g>
-              <path d="M80 300 H165 V210 H250 V330 H340 V170 H420" fill="none" stroke="var(--orange)" strokeWidth="2" />
-              <circle cx="80" cy="300" r="7" fill="var(--orange)" /><circle cx="165" cy="210" r="7" fill="var(--canvas)" stroke="var(--ink)" /><circle cx="250" cy="330" r="7" fill="var(--canvas)" stroke="var(--ink)" /><circle cx="340" cy="170" r="7" fill="var(--canvas)" stroke="var(--ink)" /><circle cx="420" cy="170" r="7" fill="var(--orange)" />
-              <rect x="76" y="135" width="95" height="42" fill="var(--ink)" /><text x="92" y="160" fontSize="11" className="mono" fill="var(--canvas)">BUILD / TEST</text>
-              <rect x="280" y="374" width="140" height="42" fill="var(--orange)" /><text x="303" y="399" fontSize="11" className="mono" fill="#0a0a0a">OBSERVE / SHIP</text>
-              <text x="35" y="465" fontSize="12" className="mono" fill="currentColor">practical engineering</text><text x="35" y="488" fontSize="12" className="mono" fill="currentColor">with a systems view</text>
-            </svg>
-            <span className="visual-caption mono">NO PORTRAIT / JUST THE WORK</span>
+            <span className="visual-label mono">BREAKING BAD / FEATURE IMAGE</span>
+            <img className="hero-feature-image" src="/walter-white-feature.avif" alt="Walter White, a fictional character from Breaking Bad" fetchPriority="high" />
+            <span className="visual-caption mono">FICTIONAL CHARACTER / NOT VAIBHAV</span>
           </div>
           <div className="scroll-mark mono mt-11"><span /> scroll to explore</div>
         </Reveal>

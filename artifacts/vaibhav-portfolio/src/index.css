@@ -149,7 +149,8 @@
 .visual-frame::before { content: ''; position: absolute; inset: 13px -13px -13px 13px; border: 1px solid var(--ink); opacity: .8; z-index: -1; }
 .visual-frame::after { content: ''; position: absolute; width: 28px; height: 28px; right: -27px; top: 24%; background: var(--orange); transform: rotate(45deg); }
 .visual-label { position: absolute; left: 18px; top: 18px; padding: 5px 8px; background: var(--ink); color: var(--canvas); font-size: 10px; }
-.visual-caption { position: absolute; bottom: 16px; right: 16px; color: var(--muted-foreground); font-size: 10px; }
+.hero-feature-image { display: block; width: 100%; height: 100%; object-fit: cover; object-position: center 34%; }
+.visual-caption { position: absolute; bottom: 16px; right: 16px; padding: 6px 8px; background: rgb(10 10 10 / 82%); color: white; font-size: 10px; }
 .hero-socials { display: flex; gap: 18px; flex-wrap: wrap; }
 .social-link { color: color-mix(in srgb, var(--ink) 62%, transparent); font-size: 12px; transition: color 200ms ease; }
 .social-link:hover { color: var(--orange); }
