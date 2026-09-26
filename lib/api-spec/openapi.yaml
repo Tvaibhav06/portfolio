@@ -10,7 +10,52 @@ servers:
 tags:
   - name: health
     description: Health operations
+  - name: contact
+    description: Portfolio contact messages
 paths:
+  /contact:
+    post:
+      operationId: sendContactMessage
+      tags: [contact]
+      summary: Send a portfolio contact message
+      description: Sends a validated message to the portfolio owner's email address.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/ContactMessage"
+      responses:
+        "200":
+          description: Email provider accepted the message
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ContactResult"
+        "400":
+          description: Invalid form fields
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ContactError"
+        "429":
+          description: Too many messages
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ContactError"
+        "502":
+          description: Email provider unavailable or rejected the message
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ContactError"
+        "503":
+          description: Email sending is not configured
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ContactError"
   /healthz:
     get:
       operationId: healthCheck
@@ -26,6 +71,41 @@ paths:
                 $ref: "#/components/schemas/HealthStatus"
 components:
   schemas:
+    ContactMessage:
+      type: object
+      required: [name, email, subject, message]
+      properties:
+        name:
+          type: string
+          minLength: 1
+          maxLength: 100
+        email:
+          type: string
+          format: email
+          maxLength: 254
+        subject:
+          type: string
+          minLength: 1
+          maxLength: 150
+        message:
+          type: string
+          minLength: 1
+          maxLength: 5000
+        website:
+          type: string
+          description: Optional spam trap; leave empty.
+    ContactResult:
+      type: object
+      required: [ok]
+      properties:
+        ok:
+          type: boolean
+    ContactError:
+      type: object
+      required: [error]
+      properties:
+        error:
+          type: string
     HealthStatus:
       type: object
       properties:
@@ -33,4 +113,3 @@ components:
           type: string
       required:
         - status
-

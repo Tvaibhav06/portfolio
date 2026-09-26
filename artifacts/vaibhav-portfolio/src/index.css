@@ -148,9 +148,8 @@
 .visual-frame { position: relative; aspect-ratio: 1 / 1.06; border: 1px solid var(--line); background: var(--surface); overflow: visible; }
 .visual-frame::before { content: ''; position: absolute; inset: 13px -13px -13px 13px; border: 1px solid var(--ink); opacity: .8; z-index: -1; }
 .visual-frame::after { content: ''; position: absolute; width: 28px; height: 28px; right: -27px; top: 24%; background: var(--orange); transform: rotate(45deg); }
-.visual-label { position: absolute; left: 18px; top: 18px; padding: 5px 8px; background: var(--ink); color: var(--canvas); font-size: 10px; }
 .hero-feature-image { display: block; width: 100%; height: 100%; object-fit: cover; object-position: center 34%; }
-.visual-caption { position: absolute; bottom: 16px; right: 16px; padding: 6px 8px; background: rgb(10 10 10 / 82%); color: white; font-size: 10px; }
+.visual-caption { position: absolute; right: 16px; bottom: 16px; padding: 6px 8px; background: rgb(10 10 10 / 82%); color: white; font-size: 10px; }
 .hero-socials { display: flex; gap: 18px; flex-wrap: wrap; }
 .social-link { color: color-mix(in srgb, var(--ink) 62%, transparent); font-size: 12px; transition: color 200ms ease; }
 .social-link:hover { color: var(--orange); }
@@ -248,7 +247,11 @@
 .field-error { color: #ffad79; font-size: .72rem; }
 .contact-form .button-solid { justify-self: start; background: var(--orange); color: #0a0a0a; border: 0; cursor: pointer; margin-top: 6px; }
 .contact-form .button-solid:hover { background: var(--canvas); }
+.contact-form .button-solid:disabled { cursor: wait; opacity: .65; transform: none; }
+.contact-honeypot { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
 .form-status { padding: 14px 16px; border-left: 2px solid var(--orange); background: color-mix(in srgb, var(--canvas) 9%, transparent); color: var(--canvas); font-size: .82rem; line-height: 1.6; }
+.form-status-error { border-color: #ffad79; }
+.form-status a { color: var(--canvas); text-decoration: underline; text-decoration-color: var(--orange); text-underline-offset: 3px; }
 
 .site-footer { padding: 30px 0 42px; background: var(--ink); color: var(--canvas); border-top: 1px solid color-mix(in srgb, var(--canvas) 18%, transparent); }
 .footer-grid { display: flex; justify-content: space-between; align-items: center; gap: 20px; flex-wrap: wrap; }

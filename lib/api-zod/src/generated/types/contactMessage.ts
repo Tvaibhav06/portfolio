@@ -5,6 +5,7 @@
  * API specification
  * OpenAPI spec version: 0.1.0
  */
+
 export interface ContactMessage {
   /**
      * @minLength 1
@@ -25,16 +26,4 @@ export interface ContactMessage {
   message: string;
   /** Optional spam trap; leave empty. */
   website?: string;
-}
-
-export interface ContactResult {
-  ok: boolean;
-}
-
-export interface ContactError {
-  error: string;
-}
-
-export interface HealthStatus {
-  status: string;
 }

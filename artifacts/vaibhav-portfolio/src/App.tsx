@@ -75,10 +75,10 @@ function ArchitectureVisual({ type }: { type: string }) {
       <rect x="32" y="86" width="95" height="121" className="svg-soft" /><path d="M54 117 h52 M54 135 h38 M54 153 h45 M54 171 h28" className="svg-line" fill="none" /><text x="49" y="232" fontSize="10" className="mono" fill="currentColor">REPORT.PDF</text>
       <path d="M127 145 H180" className="svg-line" fill="none" markerEnd="url(#arrow-lens)" />
       <rect x="180" y="86" width="122" height="121" className="svg-accent" /><text x="198" y="128" fontSize="12" className="mono" fill="#0a0a0a">CLAIMS</text><text x="198" y="151" fontSize="10" className="mono" fill="#0a0a0a">extract</text><text x="198" y="168" fontSize="10" className="mono" fill="#0a0a0a">entities</text>
-      <path d="M302 145 H352" className="svg-line" fill="none" markerEnd="url(#arrow-lens)" />
+      <path d="M302 112 H352" className="svg-line" fill="none" markerEnd="url(#arrow-lens)" />
       <rect x="352" y="75" width="136" height="75" className="svg-soft" /><text x="371" y="105" fontSize="10" className="mono" fill="currentColor">EVIDENCE</text><text x="371" y="127" fontSize="10" className="mono" fill="currentColor">weather / news</text>
       <rect x="352" y="174" width="136" height="75" className="svg-soft" /><text x="371" y="204" fontSize="10" className="mono" fill="currentColor">FACILITY MAP</text><circle cx="463" cy="213" r="9" fill="none" className="svg-accent" /><path d="M463 200v26 M450 213h26" className="svg-accent" fill="none" />
-      <path d="M302 207 H330 V274 H410" className="svg-line" fill="none" markerEnd="url(#arrow-lens)" /><text x="32" y="307" fontSize="10" className="mono" fill="currentColor">TRANSPARENT RISK SCORING</text>
+      <path d="M302 181 H328 V212 H352" className="svg-line" fill="none" markerEnd="url(#arrow-lens)" /><text x="32" y="307" fontSize="10" className="mono" fill="currentColor">TRANSPARENT RISK SCORING</text>
     </svg>
   );
 }
@@ -145,33 +145,57 @@ function Header({ theme, setTheme }: { theme: 'light' | 'dark'; setTheme: (theme
 }
 
 function SectionHeading({ number, title, soft, note, id }: { number: string; title: string; soft?: string; note?: string; id?: string }) {
-  return <div className="section-head"><div className="section-index eyebrow">{number} / 07</div><div><h2 id={id} className="section-title display">{title} {soft && <span className="soft">{soft}</span>}</h2>{note && <p className="section-note">{note}</p>}</div></div>;
+  return <div className="section-head"><div className="section-index eyebrow">{number} / 06</div><div><h2 id={id} className="section-title display">{title} {soft && <span className="soft">{soft}</span>}</h2>{note && <p className="section-note">{note}</p>}</div></div>;
 }
 
 function ContactForm() {
   const [values, setValues] = useState({ name: '', email: '', subject: '', message: '' });
+  const [website, setWebsite] = useState('');
   const [errors, setErrors] = useState<Record<string, string>>({});
-  const [status, setStatus] = useState<'idle' | 'submitting' | 'validated'>('idle');
+  const [status, setStatus] = useState<'idle' | 'submitting' | 'sent' | 'error'>('idle');
+  const [feedback, setFeedback] = useState('');
   const update = (field: keyof typeof values, value: string) => { setValues((current) => ({ ...current, [field]: value })); setErrors((current) => ({ ...current, [field]: '' })); setStatus('idle'); };
-  const submit = (event: FormEvent) => {
+  const submit = async (event: FormEvent) => {
     event.preventDefault();
+    if (status === 'submitting') return;
     const next: Record<string, string> = {};
     if (!values.name.trim()) next.name = 'Name is required.';
-    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(values.email)) next.email = 'Enter a valid email address.';
+    if (!/^[^\s@<>]+@[^\s@<>]+\.[^\s@<>]+$/.test(values.email)) next.email = 'Enter a valid email address.';
     if (!values.subject.trim()) next.subject = 'Subject is required.';
     if (!values.message.trim()) next.message = 'Message is required.';
     setErrors(next);
-    if (Object.keys(next).length) return;
+    if (Object.keys(next).length) { setStatus('idle'); return; }
     setStatus('submitting');
-    window.setTimeout(() => setStatus('validated'), 450);
+    setFeedback('');
+    try {
+      const apiBase = (import.meta.env.VITE_API_BASE_URL || '').replace(/\/$/, '');
+      const response = await fetch(`${apiBase}/api/contact`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ ...values, website }),
+        signal: AbortSignal.timeout(15000),
+      });
+      if (!response.ok) {
+        const result = await response.json().catch(() => ({}));
+        throw new Error(typeof result.error === 'string' ? result.error : 'Your message could not be sent. Please email me directly.');
+      }
+      setStatus('sent');
+      setValues({ name: '', email: '', subject: '', message: '' });
+      setWebsite('');
+    } catch (error) {
+      setFeedback(error instanceof Error && error.name === 'Error' ? error.message : 'Could not connect to the message service. Please try again or email me directly.');
+      setStatus('error');
+    }
   };
   return <form className="contact-form" onSubmit={submit} noValidate aria-label="Contact form">
     {(['name', 'email', 'subject', 'message'] as const).map((field) => {
       const label = field[0].toUpperCase() + field.slice(1);
-      return <div className="field" key={field}><label htmlFor={`contact-${field}`}>{label}</label>{field === 'message' ? <textarea id={`contact-${field}`} value={values[field]} onChange={(event) => update(field, event.target.value)} placeholder={`Your ${field}`} aria-invalid={Boolean(errors[field])} aria-describedby={errors[field] ? `${field}-error` : undefined} /> : <input id={`contact-${field}`} type={field === 'email' ? 'email' : 'text'} value={values[field]} onChange={(event) => update(field, event.target.value)} placeholder={`Your ${field}`} aria-invalid={Boolean(errors[field])} aria-describedby={errors[field] ? `${field}-error` : undefined} />}{errors[field] && <span className="field-error" id={`${field}-error`} role="alert">{errors[field]}</span>}</div>;
+      return <div className="field" key={field}><label htmlFor={`contact-${field}`}>{label}</label>{field === 'message' ? <textarea id={`contact-${field}`} name={field} required maxLength={5000} disabled={status === 'submitting'} value={values[field]} onChange={(event) => update(field, event.target.value)} placeholder="Tell me a little about your project or idea" aria-invalid={Boolean(errors[field])} aria-describedby={errors[field] ? `${field}-error` : undefined} /> : <input id={`contact-${field}`} name={field} type={field === 'email' ? 'email' : 'text'} required maxLength={field === 'email' ? 254 : field === 'name' ? 100 : 150} disabled={status === 'submitting'} autoComplete={field === 'name' ? 'name' : field === 'email' ? 'email' : 'off'} value={values[field]} onChange={(event) => update(field, event.target.value)} placeholder={`Your ${field}`} aria-invalid={Boolean(errors[field])} aria-describedby={errors[field] ? `${field}-error` : undefined} />}{errors[field] && <span className="field-error" id={`${field}-error`} role="alert">{errors[field]}</span>}</div>;
     })}
-    {status === 'validated' && <div className="form-status" role="status"><strong>Your message has been validated.</strong><br />Email delivery is not configured in this environment. Please contact me directly by email.</div>}
-    <button className="button-solid" type="submit" disabled={status === 'submitting'}>{status === 'submitting' ? 'Validating…' : 'Send Message'} <ArrowUpRight size={15} /></button>
+    <div className="contact-honeypot" aria-hidden="true"><label htmlFor="contact-website">Website</label><input id="contact-website" name="website" tabIndex={-1} autoComplete="off" disabled={status === 'submitting'} value={website} onChange={(event) => setWebsite(event.target.value)} /></div>
+    {status === 'sent' && <div className="form-status" role="status"><strong>Message sent.</strong> Thanks for reaching out. I’ll get back to you by email.</div>}
+    {status === 'error' && <div className="form-status form-status-error" role="alert">{feedback} <a href={`mailto:${personal.email}`}>Email me directly</a>.</div>}
+    <button className="button-solid" type="submit" disabled={status === 'submitting'}>{status === 'submitting' ? 'Sending…' : 'Send Message'} <ArrowUpRight size={15} /></button>
   </form>;
 }
 
@@ -204,9 +228,8 @@ function Home() {
         </Reveal>
         <Reveal className="hero-visual" delay="reveal-delay-2">
           <div className="visual-frame">
-            <span className="visual-label mono">BREAKING BAD / FEATURE IMAGE</span>
             <img className="hero-feature-image" src="/walter-white-feature.avif" alt="Walter White, a fictional character from Breaking Bad" fetchPriority="high" />
-            <span className="visual-caption mono">FICTIONAL CHARACTER / NOT VAIBHAV</span>
+            <span className="visual-caption mono">FICTIONAL CHARACTER / NOT VAIBHAV TANDON</span>
           </div>
           <div className="scroll-mark mono mt-11"><span /> scroll to explore</div>
         </Reveal>
@@ -241,7 +264,7 @@ function Home() {
       </section>
 
       <section id="contact" className="contact-section section">
-        <div className="site-shell"><Reveal><SectionHeading number="06" title="Contact" soft="me." note="Have a project, opportunity, or technical problem to discuss? Send me a message." /></Reveal><div className="contact-grid"><Reveal><p className="muted max-w-[340px] text-sm leading-7">The form validates your message locally. Delivery is not configured here, so direct email is the reliable route.</p><a className="contact-email" href={`mailto:${personal.email}`}><Mail size={15} /> {personal.email}</a></Reveal><Reveal delay="reveal-delay-2"><ContactForm /></Reveal></div></div>
+        <div className="site-shell"><Reveal><SectionHeading number="06" title="Contact" soft="me." note="Have a project, opportunity, or technical problem to discuss? Send me a message." /></Reveal><div className="contact-grid"><Reveal><p className="muted max-w-[340px] text-sm leading-7">Send a note through the form and I’ll reply by email. You can also reach me directly:</p><a className="contact-email" href={`mailto:${personal.email}`}><Mail size={15} /> {personal.email}</a></Reveal><Reveal delay="reveal-delay-2"><ContactForm /></Reveal></div></div>
       </section>
     </main>
     <footer className="site-footer">
