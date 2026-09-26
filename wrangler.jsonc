@@ -2,7 +2,7 @@
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "portfolio",
   "main": "./cloudflare/worker.ts",
-  "compatibility_date": "2026-09-27",
+  "compatibility_date": "2026-09-25",
   "assets": {
     "directory": "./artifacts/vaibhav-portfolio/dist/public",
     "binding": "ASSETS",
