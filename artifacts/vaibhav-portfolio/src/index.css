@@ -207,6 +207,7 @@
 .project-no { color: var(--orange); font-size: 12px; margin-bottom: 18px; }
 .project-name { font-size: clamp(2.4rem, 5vw, 4.6rem); font-weight: 800; line-height: .92; letter-spacing: -.065em; margin-bottom: 11px; }
 .project-subtitle { font-size: 1rem; color: var(--muted-foreground); margin-bottom: 24px; }
+.project-recognition { display: inline-flex; align-items: center; max-width: 100%; margin: -5px 0 17px; padding: 7px 9px; border-left: 2px solid var(--orange); background: var(--surface); color: var(--ink); font-size: 10px; line-height: 1.5; }
 .project-description { color: var(--muted-foreground); line-height: 1.75; font-size: .9rem; }
 .project-tags { display: flex; flex-wrap: wrap; gap: 7px; margin: 23px 0; }
 .project-tag { border: 1px solid var(--line); padding: 5px 8px; color: var(--muted-foreground); font-size: 10px; }
@@ -220,7 +221,10 @@
 .project-visual .svg-accent { stroke: var(--orange); fill: var(--orange); }
 .project-visual .svg-line { stroke: color-mix(in srgb, var(--ink) 62%, transparent); }
 .project-visual .svg-soft { fill: color-mix(in srgb, var(--canvas) 55%, transparent); stroke: var(--line); }
-.project-link { display: inline-flex; align-items: center; gap: 7px; margin-top: 22px; color: var(--ink); border-bottom: 1px solid var(--orange); padding-bottom: 3px; font-size: 11px; font-weight: 700; }
+.project-links { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 22px; margin-top: 24px; }
+.project-link { display: inline-flex; align-items: center; gap: 7px; color: var(--ink); border-bottom: 1px solid var(--orange); padding-bottom: 3px; font-size: 11px; font-weight: 700; transition: color 200ms ease; }
+.project-link:hover { color: var(--orange); }
+.experience-item .project-link { margin-top: 18px; }
 
 .stack-grid { display: grid; grid-template-columns: repeat(2, 1fr); border-top: 1px solid var(--line); }
 .stack-group { padding: 22px 0 27px; border-bottom: 1px solid var(--line); }
@@ -278,6 +282,7 @@
   .hero { min-height: auto; padding-block: 70px 58px; }
   .hero-title { font-size: clamp(3.5rem, 18vw, 5.6rem); }
   .hero-visual { margin-top: 56px; }
+  .visual-frame::after { right: -10px; }
   .section { padding-block: 78px; }
   .section-head { grid-template-columns: 1fr; gap: 15px; margin-bottom: 36px; }
   .section-title { font-size: clamp(2.65rem, 14vw, 4rem); }

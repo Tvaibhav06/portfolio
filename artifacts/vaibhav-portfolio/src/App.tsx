@@ -24,7 +24,7 @@ function Reveal({ children, className = '', delay = '' }: { children: ReactNode;
   return <div ref={ref} className={`reveal ${delay} ${className}`}>{children}</div>;
 }
 
-function ArchitectureVisual({ type }: { type: string }) {
+function ArchitectureVisual({ type }: { type: (typeof projects)[number]['type'] }) {
   if (type === 'flowgate') {
     return (
       <svg viewBox="0 0 520 360" role="img" aria-label="FlowGate request gateway, policy, provider and telemetry architecture diagram">
@@ -47,10 +47,31 @@ function ArchitectureVisual({ type }: { type: string }) {
       </svg>
     );
   }
+  if (type === 'botbeacon') {
+    return (
+      <svg viewBox="0 0 520 360" role="img" aria-label="BotBeacon commerce gateway with MCP tools, policy checks, merchant copilot and campaign automation">
+        <defs><marker id="arrow-bot" markerWidth="7" markerHeight="7" refX="5" refY="3.5" orient="auto"><path d="M0,0 L7,3.5 L0,7" fill="none" stroke="currentColor" /></marker></defs>
+        <text x="30" y="42" fontSize="10" className="mono" fill="currentColor">COMMERCE FLOW / 02</text>
+        <rect x="30" y="83" width="112" height="70" className="svg-soft" /><text x="48" y="112" fontSize="11" className="mono" fill="currentColor">SHOPPER</text><text x="48" y="135" fontSize="10" className="mono" fill="currentColor">AI AGENT</text>
+        <path d="M142 118 H184" className="svg-line" fill="none" markerEnd="url(#arrow-bot)" />
+        <rect x="184" y="70" width="150" height="96" className="svg-accent" /><text x="204" y="109" fontSize="12" className="mono" fill="#0a0a0a">GATEWAY</text><text x="204" y="136" fontSize="10" className="mono" fill="#0a0a0a">POLICY GATES</text>
+        <path d="M334 118 H372" className="svg-line" fill="none" markerEnd="url(#arrow-bot)" />
+        <rect x="372" y="83" width="118" height="70" className="svg-soft" /><text x="388" y="111" fontSize="11" className="mono" fill="currentColor">5 MCP TOOLS</text><text x="388" y="135" fontSize="10" className="mono" fill="currentColor">CART / BUY</text>
+        <path d="M259 166 V205" className="svg-line" fill="none" markerEnd="url(#arrow-bot)" />
+        <rect x="184" y="205" width="150" height="65" className="svg-soft" /><text x="205" y="232" fontSize="11" className="mono" fill="currentColor">MERCHANT AI</text><text x="205" y="253" fontSize="10" className="mono" fill="currentColor">GEMINI + SQL</text>
+        <path d="M184 237 H141" className="svg-line" fill="none" markerEnd="url(#arrow-bot)" />
+        <rect x="30" y="205" width="111" height="65" className="svg-soft" /><text x="45" y="233" fontSize="11" className="mono" fill="currentColor">MERCHANT</text><text x="45" y="253" fontSize="10" className="mono" fill="currentColor">INSIGHTS</text>
+        <path d="M334 237 H371" className="svg-line" fill="none" markerEnd="url(#arrow-bot)" />
+        <rect x="371" y="205" width="119" height="65" className="svg-soft" /><text x="388" y="232" fontSize="11" className="mono" fill="currentColor">n8n</text><text x="388" y="253" fontSize="10" className="mono" fill="currentColor">CAMPAIGNS</text>
+        <path d="M431 270 V296 H259 V270" className="svg-line" fill="none" markerEnd="url(#arrow-bot)" />
+        <text x="151" y="328" fontSize="10" className="mono" fill="currentColor">RECHECK POLICY / AUDIT TRAIL</text>
+      </svg>
+    );
+  }
   if (type === 'secure') {
     return (
       <svg viewBox="0 0 520 360" role="img" aria-label="LowKey Secure identity, permissions, shield and approval flow diagram">
-        <text x="32" y="42" fontSize="10" className="mono" fill="currentColor">CONSENT-FIRST ACCESS / 02</text>
+        <text x="32" y="42" fontSize="10" className="mono" fill="currentColor">CONSENT-FIRST ACCESS / 03</text>
         <circle cx="110" cy="132" r="56" className="svg-soft" /><circle cx="110" cy="132" r="32" fill="none" className="svg-line" /><circle cx="110" cy="132" r="7" className="svg-accent" />
         <text x="78" y="224" fontSize="11" className="mono" fill="currentColor">IDENTITY</text>
         <path d="M166 132 H220" className="svg-line" fill="none" />
@@ -71,7 +92,7 @@ function ArchitectureVisual({ type }: { type: string }) {
   return (
     <svg viewBox="0 0 520 360" role="img" aria-label="LENS document to ESG claim, evidence and map verification diagram">
       <defs><marker id="arrow-lens" markerWidth="7" markerHeight="7" refX="5" refY="3.5" orient="auto"><path d="M0,0 L7,3.5 L0,7" fill="none" stroke="currentColor" /></marker></defs>
-      <text x="32" y="42" fontSize="10" className="mono" fill="currentColor">EVIDENCE GRAPH / 03</text>
+      <text x="32" y="42" fontSize="10" className="mono" fill="currentColor">EVIDENCE GRAPH / 04</text>
       <rect x="32" y="86" width="95" height="121" className="svg-soft" /><path d="M54 117 h52 M54 135 h38 M54 153 h45 M54 171 h28" className="svg-line" fill="none" /><text x="49" y="232" fontSize="10" className="mono" fill="currentColor">REPORT.PDF</text>
       <path d="M127 145 H180" className="svg-line" fill="none" markerEnd="url(#arrow-lens)" />
       <rect x="180" y="86" width="122" height="121" className="svg-accent" /><text x="198" y="128" fontSize="12" className="mono" fill="#0a0a0a">CLAIMS</text><text x="198" y="151" fontSize="10" className="mono" fill="#0a0a0a">extract</text><text x="198" y="168" fontSize="10" className="mono" fill="#0a0a0a">entities</text>
@@ -204,12 +225,12 @@ function Home() {
   useEffect(() => {
     document.documentElement.classList.toggle('dark', theme === 'dark');
     localStorage.setItem('vt-theme', theme);
-    document.title = 'Vaibhav Tandon — Software Developer';
-    const description = 'Vaibhav Tandon is a software developer focused on AI/ML, backend engineering, full-stack development, and systems.';
+    document.title = 'Vaibhav Tandon — Software Developer | AI & Backend Systems';
+    const description = 'Vaibhav Tandon builds LLM infrastructure, AI-powered products, and privacy-conscious full-stack systems. Explore FlowGate, BotBeacon, LowKey Secure, and LENS.';
     let meta = document.querySelector('meta[name="description"]');
     if (!meta) { meta = document.createElement('meta'); meta.setAttribute('name', 'description'); document.head.appendChild(meta); }
     meta.setAttribute('content', description);
-    const ld = { '@context': 'https://schema.org', '@type': 'Person', name: personal.name, email: personal.email, jobTitle: 'Software Developer', knowsAbout: ['AI/ML', 'Backend Engineering', 'Full-Stack Development', 'Systems'] };
+    const ld = { '@context': 'https://schema.org', '@type': 'Person', name: personal.name, email: personal.email, jobTitle: 'Software Developer', sameAs: personal.links.map((link) => link.url), knowsAbout: ['LLM Infrastructure', 'Backend Engineering', 'AI Commerce', 'Privacy Engineering', 'Full-Stack Development'] };
     let script = document.getElementById('person-jsonld') as HTMLScriptElement | null;
     if (!script) { script = document.createElement('script'); script.id = 'person-jsonld'; script.type = 'application/ld+json'; document.head.appendChild(script); }
     script.textContent = JSON.stringify(ld);
@@ -220,11 +241,11 @@ function Home() {
     <main>
       <section id="home" className="hero site-shell">
         <Reveal>
-          <div className="hero-kicker eyebrow text-[11px]">AI / BACKEND / SYSTEMS</div>
+          <div className="hero-kicker eyebrow text-[11px]">AI / BACKEND / PRODUCT</div>
           <h1 className="hero-title display mt-7">hey, I’m<br /><em>Vaibhav</em><br />Tandon<span className="orange">.</span></h1>
           <p className="hero-copy mt-8">{personal.headline} <span className="orange-mark" /></p>
-          <div className="hero-actions mt-8"><a className="button-solid" href="#projects">View Projects <ArrowDownRight size={15} /></a><a className="button-ghost" href="#about">About Me</a><a className="button-ghost" href="/vaibhav-tandon-resume.pdf" target="_blank" rel="noreferrer">Resume <ExternalLink size={14} /></a></div>
-          <div className="hero-socials mt-12"><a className="social-link" href={`mailto:${personal.email}`}><Mail size={13} className="mr-1 inline" />Email</a></div>
+          <div className="hero-actions mt-8"><a className="button-solid" href="#projects">View Projects <ArrowDownRight size={15} /></a><a className="button-ghost" href="#about">About Me</a><a className="button-ghost" href="/vaibhav-tandon-resume.pdf" download="Vaibhav_Tandon_Resume.pdf">Download Resume <ExternalLink size={14} /></a></div>
+          <div className="hero-socials mt-12"><a className="social-link" href={`mailto:${personal.email}`}><Mail size={13} className="mr-1 inline" />Email</a>{personal.links.map((link) => <a className="social-link" key={link.label} href={link.url} target="_blank" rel="noopener noreferrer">{link.label} <ArrowUpRight size={12} className="inline" /></a>)}</div>
         </Reveal>
         <Reveal className="hero-visual" delay="reveal-delay-2">
           <div className="visual-frame">
@@ -236,26 +257,40 @@ function Home() {
       </section>
 
       <section id="about" className="section site-shell">
-        <Reveal><SectionHeading number="01" title="About" soft="me." note="A B.Tech student at The LNM Institute of Information Technology, interested in AI/ML, backend systems, full-stack engineering, and practical software development." /></Reveal>
+        <Reveal><SectionHeading number="01" title="About" soft="me." note="A B.Tech student at The LNM Institute of Information Technology, building AI products, backend infrastructure, and practical software for real users." /></Reveal>
         <div className="about-grid">
-          <Reveal><p className="about-lede">I like working where <mark>systems meet people</mark> — turning complex workflows into software that is clear, measurable, and useful.</p><p className="about-body">My work spans AI-powered pipelines, backend infrastructure, and interfaces that make technical systems easier to operate. I am currently pursuing Communication and Computer Engineering and building through projects, internships, and campus initiatives.</p></Reveal>
+          <Reveal><p className="about-lede">I like working where <mark>systems meet people</mark> — turning complex workflows into software that is clear, measurable, and useful.</p><p className="about-body">I have built an LLM gateway, an AI commerce platform, a privacy-first event system, and an ESG verification tool. My internship work spans multilingual image-text editing, from OCR and translation to style-aware re-rendering. I am pursuing Communication and Computer Engineering while building through projects, internships, and campus initiatives.</p></Reveal>
           <Reveal delay="reveal-delay-2">{education.map((item, index) => <div className="academic-block" key={item.school}><div className="eyebrow text-[10px] text-[color:var(--orange)]">{item.label} / {String(index + 1).padStart(2, '0')}</div><h3>{item.school}</h3><p>{item.degree}<br />{item.dates} · {item.place}</p>{item.score && <div className="cgpa"><strong>{item.score}</strong><span className="mono text-[10px] text-[color:var(--muted-foreground)]">{item.scoreLabel}</span></div>}</div>)}</Reveal>
         </div>
       </section>
 
       <section className="section site-shell" aria-labelledby="focus-title">
-        <Reveal><SectionHeading id="focus-title" number="02" title="What I" soft="build." note="Four connected areas of practice, from model-facing pipelines to the infrastructure that keeps them understandable in production." /></Reveal>
+        <Reveal><SectionHeading id="focus-title" number="02" title="What I" soft="build." note="Four connected areas of practice, from AI workflows and secure APIs to interfaces and observable infrastructure." /></Reveal>
         <div className="focus-grid">{focusAreas.map((area, index) => <Reveal key={area.title} delay={`reveal-delay-${Math.min(index + 1, 3)}`} className="focus-card"><div className="focus-number mono">{area.number}</div><div className="focus-icon"><Icon name={area.icon} /></div><h3>{area.title}</h3><p>{area.text}</p></Reveal>)}</div>
       </section>
 
       <section id="experience" className="section site-shell">
         <Reveal><SectionHeading number="03" title="Experience" note="Engineering work and collaborative builds that connect technical depth with real users and real constraints." /></Reveal>
-        <div className="experience-list">{experience.map((item, index) => <Reveal key={item.company} className="experience-item" delay={`reveal-delay-${index + 1}`}><div className="experience-meta"><div className="experience-dot" /><div><div className="mono text-[10px] text-[color:var(--muted-foreground)]">{item.dates}</div></div></div><div><div className="experience-company">{item.company}</div><div className="experience-role">{item.role}</div><p className="experience-copy mt-5">{item.description}</p><p className="tech-line mono">{item.technologies}</p></div><div className="experience-aside"><strong>{item.place}</strong>{item.detail}</div></Reveal>)}</div>
+        <div className="experience-list">{experience.map((item, index) => <Reveal key={item.company} className="experience-item" delay={`reveal-delay-${index + 1}`}><div className="experience-meta"><div className="experience-dot" /><div><div className="mono text-[10px] text-[color:var(--muted-foreground)]">{item.dates}</div></div></div><div><div className="experience-company">{item.company}</div><div className="experience-role">{item.role}</div><p className="experience-copy mt-5">{item.description}</p><p className="tech-line mono">{item.technologies}</p>{item.link && <a className="project-link" href={item.link.url} target="_blank" rel="noopener noreferrer">{item.link.label} <ArrowUpRight size={13} /></a>}</div><div className="experience-aside"><strong>{item.place}</strong>{item.detail}</div></Reveal>)}</div>
       </section>
 
       <section id="projects" className="section site-shell">
-        <Reveal><SectionHeading number="04" title="Selected" soft="projects." note="Three systems, each presented as a small technical story rather than a screenshot." /></Reveal>
-        <div className="projects-list">{projects.map((project, index) => <Reveal key={project.name} className={`project-row ${index === 1 ? 'reverse' : ''}`}><div className="project-visual"><ArchitectureVisual type={project.type} /></div><div><div className="project-no eyebrow">{project.number} / PROJECT</div><h3 className="project-name display">{project.name}</h3><p className="project-subtitle">{project.subtitle}</p><p className="project-description">{project.description}</p><div className="project-tags">{project.tags.map((tag) => <span className="project-tag mono" key={tag}>{tag}</span>)}</div><div className="project-capabilities">{project.capabilities.map((capability) => <span className="capability" key={capability}>{capability}</span>)}</div><div className="project-metrics">{project.metrics.map(([value, label]) => <div className="metric" key={label}><strong>{value}</strong><span>{label}</span></div>)}</div></div></Reveal>)}</div>
+        <Reveal><SectionHeading number="04" title="Selected" soft="projects." note="Four projects from the latest resume, with architecture sketches, outcomes, and source or demo links." /></Reveal>
+        <div className="projects-list">{projects.map((project, index) =>
+          <Reveal key={project.name} className={`project-row ${index % 2 === 1 ? 'reverse' : ''}`}>
+            <div className="project-visual"><ArchitectureVisual type={project.type} /></div>
+            <div>
+              <div className="project-no eyebrow">{project.number} / PROJECT</div>
+              <h3 className="project-name display">{project.name}</h3>
+              <p className="project-subtitle">{project.subtitle}</p>
+              {project.recognition && <p className="project-recognition mono">{project.recognition}</p>}
+              <p className="project-description">{project.description}</p>
+              <div className="project-tags">{project.tags.map((tag) => <span className="project-tag mono" key={tag}>{tag}</span>)}</div>
+              <div className="project-capabilities">{project.capabilities.map((capability) => <span className="capability" key={capability}>{capability}</span>)}</div>
+              <div className="project-metrics">{project.metrics.map(([value, label]) => <div className="metric" key={label}><strong>{value}</strong><span>{label}</span></div>)}</div>
+              <div className="project-links">{project.links.map((link) => <a className="project-link" href={link.url} key={link.label} target="_blank" rel="noopener noreferrer">{link.label} <ArrowUpRight size={13} /></a>)}</div>
+            </div>
+          </Reveal>)}</div>
       </section>
 
       <section id="stack" className="section site-shell">
@@ -268,7 +303,7 @@ function Home() {
       </section>
     </main>
     <footer className="site-footer">
-      <div className="site-shell"><div className="footer-grid"><div className="display text-xl font-extrabold tracking-[-.08em]">VT<span className="orange">.</span></div><nav className="footer-links" aria-label="Footer navigation">{[['home', 'Home'], ['about', 'About'], ['projects', 'Projects'], ['contact', 'Contact']].map(([id, label]) => <a href={`#${id}`} key={id}>{label}</a>)}</nav><div className="footer-socials"><a href={`mailto:${personal.email}`}>Email</a></div></div><p className="copyright mono">© {new Date().getFullYear()} Vaibhav Tandon · built around the work</p></div>
+      <div className="site-shell"><div className="footer-grid"><div className="display text-xl font-extrabold tracking-[-.08em]">VT<span className="orange">.</span></div><nav className="footer-links" aria-label="Footer navigation">{[['home', 'Home'], ['about', 'About'], ['projects', 'Projects'], ['contact', 'Contact']].map(([id, label]) => <a href={`#${id}`} key={id}>{label}</a>)}</nav><div className="footer-socials"><a href={`mailto:${personal.email}`}>Email</a>{personal.links.map((link) => <a key={link.label} href={link.url} target="_blank" rel="noopener noreferrer">{link.label}</a>)}</div></div><p className="copyright mono">© {new Date().getFullYear()} Vaibhav Tandon · built around the work</p></div>
     </footer>
   </div>;
 }
