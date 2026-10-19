@@ -244,12 +244,12 @@ function Home() {
           <div className="hero-kicker eyebrow text-[11px]">AI / BACKEND / PRODUCT</div>
           <h1 className="hero-title display mt-7">hey, I’m<br /><em>Vaibhav</em><br />Tandon<span className="orange">.</span></h1>
           <p className="hero-copy mt-8">{personal.headline} <span className="orange-mark" /></p>
-          <div className="hero-actions mt-8"><a className="button-solid" href="#projects">View Projects <ArrowDownRight size={15} /></a><a className="button-ghost" href="#about">About Me</a><a className="button-ghost" href="/vaibhav-tandon-resume.pdf" download="Vaibhav_Tandon_Resume.pdf">Download Resume <ExternalLink size={14} /></a></div>
+          <div className="hero-actions mt-8"><a className="button-solid" href="#projects">View Projects <ArrowDownRight size={15} /></a><a className="button-ghost" href="#about">About Me</a><a className="button-ghost" href="/vaibhav-tandon-resume.pdf" target="_blank" rel="noopener noreferrer">Resume <ExternalLink size={14} /></a></div>
           <div className="hero-socials mt-12"><a className="social-link" href={`mailto:${personal.email}`}><Mail size={13} className="mr-1 inline" />Email</a>{personal.links.map((link) => <a className="social-link" key={link.label} href={link.url} target="_blank" rel="noopener noreferrer">{link.label} <ArrowUpRight size={12} className="inline" /></a>)}</div>
         </Reveal>
         <Reveal className="hero-visual" delay="reveal-delay-2">
           <div className="visual-frame">
-            <img className="hero-feature-image" src="/walter-white-feature.avif" alt="Walter White, a fictional character from Breaking Bad" fetchPriority="high" />
+            <img className="hero-feature-image" src="/pfp.jpg" alt="Blue-lit stormtrooper helmet, a fictional character" fetchPriority="high" />
             <span className="visual-caption mono">FICTIONAL CHARACTER / NOT VAIBHAV TANDON</span>
           </div>
           <div className="scroll-mark mono mt-11"><span /> scroll to explore</div>
@@ -260,7 +260,7 @@ function Home() {
         <Reveal><SectionHeading number="01" title="About" soft="me." note="A B.Tech student at The LNM Institute of Information Technology, building AI products, backend infrastructure, and practical software for real users." /></Reveal>
         <div className="about-grid">
           <Reveal><p className="about-lede">I like working where <mark>systems meet people</mark> — turning complex workflows into software that is clear, measurable, and useful.</p><p className="about-body">I have built an LLM gateway, an AI commerce platform, a privacy-first event system, and an ESG verification tool. My internship work spans multilingual image-text editing, from OCR and translation to style-aware re-rendering. I am pursuing Communication and Computer Engineering while building through projects, internships, and campus initiatives.</p></Reveal>
-          <Reveal delay="reveal-delay-2">{education.map((item, index) => <div className="academic-block" key={item.school}><div className="eyebrow text-[10px] text-[color:var(--orange)]">{item.label} / {String(index + 1).padStart(2, '0')}</div><h3>{item.school}</h3><p>{item.degree}<br />{item.dates} · {item.place}</p>{item.score && <div className="cgpa"><strong>{item.score}</strong><span className="mono text-[10px] text-[color:var(--muted-foreground)]">{item.scoreLabel}</span></div>}</div>)}</Reveal>
+          <Reveal delay="reveal-delay-2">{education.map((item, index) => <div className="academic-block" key={item.school}><div className="eyebrow text-[10px] text-[color:var(--orange)]">{item.label} / {String(index + 1).padStart(2, '0')}</div><h3>{item.school}</h3><p>{item.degree}<br />{item.dates} · {item.place}</p></div>)}</Reveal>
         </div>
       </section>
 

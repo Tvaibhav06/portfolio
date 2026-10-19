@@ -19,8 +19,6 @@ export const education = [
     degree: 'B.Tech in Communication and Computer Engineering',
     dates: '2024 – 2028',
     place: 'Jaipur, India',
-    score: '7.34',
-    scoreLabel: 'CGPA',
   },
   {
     label: 'Academic record',
@@ -28,8 +26,6 @@ export const education = [
     degree: 'CBSE Class XII: 90% · Class X: 96%',
     dates: '2022 – 2024',
     place: 'Delhi, India',
-    score: null,
-    scoreLabel: null,
   },
 ] as const;
 
